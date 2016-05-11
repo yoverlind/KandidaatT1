@@ -25,7 +25,6 @@ namespace KandidaatT1
     {
 
         
-        
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +46,7 @@ namespace KandidaatT1
 
             if (verbind == 0)
             {
-                lblCon.Text = "verbonden met k8055, kaartadres is : " + verbind.ToString();
+                lblCon.Text = "verbonden met k8055" + verbind.ToString();
             }
             else
             {
