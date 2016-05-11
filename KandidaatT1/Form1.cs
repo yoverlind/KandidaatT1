@@ -34,10 +34,9 @@ namespace KandidaatT1
         private string receiveText;
         string toets = string.Empty;
         int numpadKey;
+        double n = 0.0;
 
-        private delegate void dUpdateMijnLabel(int teller);
 
-        private Thread tTeller;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -69,11 +68,6 @@ namespace KandidaatT1
         private void TimeLeesInputs_Tick(object sender, EventArgs e)
         {
             
-            
-            double n = 0.0;
-
-            TimeLeesInputs.Enabled = false;
-
             lblGedrukt.Text = "Char_hier";
 
             for (int i = 0; i < 3; i++)
@@ -180,6 +174,8 @@ namespace KandidaatT1
 
                 txtVraag.Text += Environment.NewLine + Environment.NewLine + receiveText;
             }
+            else
+                txtVraag.Text = string.Empty;
 
         }
 
@@ -191,7 +187,7 @@ namespace KandidaatT1
             try
             {
                 serialPort1.Write((char)1 + toBeSent + (char)3);   //.Write(Chr(1) + teVersturen + Chr(2));
-                txtAntwoord.Text = "";
+                txtAntwoord.Text = string.Empty;
             }
             catch (Exception ex)
             {
