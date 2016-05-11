@@ -32,11 +32,16 @@ namespace KandidaatT1
 
         private int verbind;
         private string receiveText;
+        string toets = string.Empty;
+        int numpadKey;
+
+        private delegate void dUpdateMijnLabel(int teller);
+
+        private Thread tTeller;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             serialPort1.Open();
-            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
 
@@ -64,12 +69,11 @@ namespace KandidaatT1
         private void TimeLeesInputs_Tick(object sender, EventArgs e)
         {
             
-            int numpadKey =0;
+            
             double n = 0.0;
 
             TimeLeesInputs.Enabled = false;
 
-            String toets = string.Empty;
             lblGedrukt.Text = "Char_hier";
 
             for (int i = 0; i < 3; i++)
